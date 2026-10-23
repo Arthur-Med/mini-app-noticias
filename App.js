@@ -17,9 +17,6 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Ionicons } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
 
-// ==========================================
-// DADOS DAS NOTÍCIAS (TECNOLOGIA E ESPORTES)
-// ==========================================
 const NOTICIAS_TECNOLOGIA = [
   {
     id: '1',
@@ -90,9 +87,6 @@ const NOTICIAS_ESPORTES = [
   },
 ];
 
-// ==========================================
-// COMPONENTE REUTILIZÁVEL: CARDNOTICIA
-// ==========================================
 function CardNoticia({ noticia, onPress }) {
   return (
     <TouchableOpacity style={cardStyles.card} activeOpacity={0.7} onPress={onPress}>
@@ -139,9 +133,6 @@ const cardStyles = StyleSheet.create({
   },
 });
 
-// ==========================================
-// TELA: LISTA DE NOTÍCIAS
-// ==========================================
 function ListaNoticiasScreen({ route, navigation }) {
   const categoria = route.params?.categoria || 'Tecnologia';
   const dados = categoria === 'Esportes' ? NOTICIAS_ESPORTES : NOTICIAS_TECNOLOGIA;
@@ -188,9 +179,6 @@ const listaStyles = StyleSheet.create({
   },
 });
 
-// ==========================================
-// TELA: DETALHES DA NOTÍCIA
-// ==========================================
 function DetalhesScreen({ route, navigation }) {
   const { noticia } = route.params;
 
@@ -265,9 +253,6 @@ const detalhesStyles = StyleSheet.create({
   },
 });
 
-// ==========================================
-// TELA: SOBRE (HAMOO APP)
-// ==========================================
 function SobreScreen({ navigation }) {
   return (
     <View style={sobreStyles.container}>
@@ -361,9 +346,6 @@ const sobreStyles = StyleSheet.create({
   },
 });
 
-// ==========================================
-// NAVEGADORES (STACK, TAB E DRAWER)
-// ==========================================
 const Drawer = createDrawerNavigator();
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
